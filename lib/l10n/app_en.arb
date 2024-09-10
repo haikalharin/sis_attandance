@@ -1,0 +1,14 @@
+{
+  "helloWorld": "Hello World!",
+  "myRecruitment": "My Recruitment",
+  "beRecruitment": "BE Recruitment",
+  "notification": "notification",
+  "sorted": "Sorted",
+  "reload": "Reload",
+  "note": "Note",
+  "language": "Language",
+  "dataNotFound": "Data Not Found",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  }
+}
