@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sis_attendance/utils/acl_color.dart';
 
+import '../../../core/router/routes.dart';
+
 
 
 class DashboardScreen extends StatelessWidget {
@@ -143,7 +145,9 @@ class DashboardScreen extends StatelessWidget {
                               SizedBox(
                                 width: double.infinity,
                                 child: ElevatedButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.of(context).pushNamed(Routes.mapScreen);
+                                  },
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.blue.shade900,
                                     shape: RoundedRectangleBorder(

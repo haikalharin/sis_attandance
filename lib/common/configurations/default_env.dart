@@ -1,5 +1,6 @@
 class DefaultConfig {
   static const host = '';
+  static const hostMaps = '';
   static const subHost = '';
   static const imageHost = '';
   static const connectionTimeout =  Duration();

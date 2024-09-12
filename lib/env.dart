@@ -11,9 +11,10 @@
 //   'mode': 'dev', //dev or prod
 // };
 
-// env dev allianz
+// env dev
 final Map<String, dynamic> devEnvironment = <String, dynamic>{
   'host': '',
+  'host_maps': 'https://nominatim.openstreetmap.org/',
   'sub_host': '',
   'receive_timeout': const Duration(milliseconds: 15000),
   'connection_timeout': const Duration(milliseconds: 15000),
@@ -25,7 +26,8 @@ final Map<String, dynamic> devEnvironment = <String, dynamic>{
 
 final Map<String, dynamic> environment = <String, dynamic>{
   'host': '',
-  'sub_host': '',
+  'host_maps': 'https://nominatim.openstreetmap.org/',
+  'sub_host': 'reverse',
   'receive_timeout': const Duration(milliseconds: 15000),
   'connection_timeout': const Duration(milliseconds: 15000),
   'host_vpn': '',
@@ -35,7 +37,8 @@ final Map<String, dynamic> environment = <String, dynamic>{
 
 final Map<String, dynamic> stagingEnvironment = <String, dynamic>{
   'host': '',
-  'sub_host': '',
+  'host_maps': 'https://nominatim.openstreetmap.org/',
+  'sub_host': 'reverse',
   'receive_timeout': const Duration(milliseconds: 15000),
   'connection_timeout': const Duration(milliseconds: 15000),
   'host_vpn': '',

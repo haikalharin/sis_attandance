@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sis_attendance/screens/comment/bloc/comment_bloc.dart';
 import 'package:sis_attendance/screens/login_page/bloc/login_page_bloc.dart';
 import 'package:sis_attendance/screens/login_page/screen/login_page.dart';
+import 'package:sis_attendance/screens/map_page/bloc/maps_page_bloc.dart';
 import 'package:sis_attendance/screens/post/bloc/post_bloc.dart';
 import 'package:sis_attendance/screens/splashscreen_page/bloc/splash_screen_bloc.dart';
 import 'package:sis_attendance/screens/todo/bloc/todo_bloc.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
         BlocProvider<SplashscreenBloc>(create: (context) => getIt<SplashscreenBloc>()),
         BlocProvider<LanguageCubit>(create: (context) => getIt<LanguageCubit>()),
         BlocProvider<LoginPageBloc>(create: (context) => getIt<LoginPageBloc>()),
+        BlocProvider<MapsPageBloc>(create: (context) => getIt<MapsPageBloc>()),
              ],
       child: BlocBuilder<LanguageCubit, Locale>(
         builder: (context, lang) {

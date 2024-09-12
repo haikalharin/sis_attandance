@@ -9,4 +9,5 @@ mixin Routes {
   static const String sidebarPage = '/sidebarPage';
   static const String addAgentPage = '/addAgentPage';
   static const String detailCandidatePage = '/detailCandidatePage';
+  static const String mapScreen = '/mapScreen';
 }

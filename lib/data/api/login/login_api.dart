@@ -1,26 +1,27 @@
+import 'package:sis_attendance/data/model/address_model/address_model.dart';
 import 'package:sis_attendance/data/model/login_model/login_model.dart';
 import 'package:dio/dio.dart';
+import 'package:sis_attendance/data/model/response_model/response_model.dart';
 
 import '../../../core/network/api_helper.dart';
 import '../../../core/network/dio_client.dart';
 import '../../../core/network/service_url.dart';
 
-class LoginApi with ApiHelper<LoginModel> {
+class MapsApi with ApiHelper<AddressModel> {
   final DioClient dioClient;
 
-  LoginApi({required this.dioClient});
+  MapsApi({required this.dioClient});
 
-  Future<Response> login({String? userName, String? password}) async {
-    Map<String, String> data = <String, String>{};
-    if (userName != null){
-      data.addAll({'username':userName});
-    }
+  Future<ResponseModel<AddressModel>> getAddress({double? lat, double? long}) async {
+    Map<String, String> data = {
+      'lat': "${lat ?? 0.0}",
+      'lon': "${long ?? 0.0}"
+    };
 
-    if (password != null) {
-      data.addAll({'password':password});
-    }
-
-    return await makePostRequestWithResponse(dioClient.dioAuth.post(ServiceUrl.login, data: data,));
+    return await makeGetRequestWithResponseModel(
+        dioClient.dioMaps.get(
+          "${ServiceUrl.getAddress}?lat=$lat&lon=$long&format=json",
+        ),
+        AddressModel.fromJson);
   }
-
 }

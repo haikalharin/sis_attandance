@@ -1,7 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:sis_attendance/data/api/login/login_api.dart';
+import 'package:sis_attendance/data/repository/maps/maps_repository.dart';
 import 'package:sis_attendance/screens/comment/bloc/comment_bloc.dart';
 import 'package:sis_attendance/screens/login_page/bloc/login_page_bloc.dart';
+import 'package:sis_attendance/screens/map_page/bloc/maps_page_bloc.dart';
 import 'package:sis_attendance/screens/post/bloc/post_bloc.dart';
 import 'package:sis_attendance/screens/splashscreen_page/bloc/splash_screen_bloc.dart';
 import 'package:sis_attendance/screens/todo/bloc/todo_bloc.dart';
@@ -28,7 +31,7 @@ Future<void> init() async {
   getIt.registerLazySingleton<Dio>(() => Dio());
 
   getIt.registerLazySingleton<DioClient>(
-          () => DioClient(getIt<Dio>(), getIt<Dio>()));
+          () => DioClient(getIt<Dio>(), getIt<Dio>(),getIt<Dio>()));
 
   // User api
   getIt.registerLazySingleton<UserApi>(
@@ -50,6 +53,10 @@ Future<void> init() async {
   // Notify api
   getIt.registerLazySingleton<NotifyApi>(
           () => NotifyApi(dioClient: getIt<DioClient>()));
+
+  // Maps api
+  getIt.registerLazySingleton<MapsApi>(
+          () => MapsApi(dioClient: getIt<DioClient>()));
 
   // User repository
   getIt.registerLazySingleton<UserRepository>(
@@ -76,6 +83,11 @@ Future<void> init() async {
         () => NotificationRepository(notifyApi: getIt<NotifyApi>()),
   );
 
+  // Agent repository
+  getIt.registerLazySingleton<MapsRepository>(
+        () => MapsRepository(mapsApi: getIt<MapsApi>()),
+  );
+
   //_Todo Bloc
   getIt.registerLazySingleton(
           () => TodoBloc(todoRepository: getIt<TodoRepository>()));
@@ -96,6 +108,9 @@ Future<void> init() async {
   getIt.registerLazySingleton(
           () => LoginPageBloc(userRepository: getIt<UserRepository>()));
 
+  //Maps Bloc
+  getIt.registerLazySingleton(
+          () => MapsPageBloc(mapsRepository: getIt<MapsRepository>()));
 
   // //Home Bloc
   // getIt.registerLazySingleton(() => HomePageBloc(

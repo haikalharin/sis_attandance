@@ -4,6 +4,7 @@ import 'package:sis_attendance/screens/login_page/screen/login_page.dart';
 import 'package:sis_attendance/screens/user/user_list_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../screens/map_page/map_screen.dart';
 import '../../screens/splashscreen_page/splashscreen_page.dart';
 import '../../utils/remote_utils.dart';
 
@@ -21,6 +22,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const LoginPage());
       case Routes.dashboardScreen:
         return MaterialPageRoute(builder: (_) => const DashboardScreen());
+ case Routes.mapScreen:
+        return MaterialPageRoute(builder: (_) => MapScreen());
       // case Routes.detailCandidatePage:
       //   return MaterialPageRoute(
       //       builder: (_) => DetailCandidatePage(
